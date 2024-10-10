@@ -68,9 +68,9 @@ We provide a quick overview of the arguments:
 - `--seqlen`: Length of context window in tokens. Default is 2048.
 - `--data_seqlen`: Number of meaningful tokens in each calibration sample, the
   remaining portion of context window is filled with padding tokens.
-- '--num_incontext': Number of in-context Q-A pairs in each calibration sample.
-- '--num_cot_steps': Number of CoT steps.
-- '--verbose': If flag is included, print debugging output.
+- `--num_incontext`: Number of in-context Q-A pairs in each calibration sample.
+- `--num_cot_steps`: Number of CoT steps.
+- `--verbose`: If flag is included, print debugging output.
 
 ## Example
 ```sh
@@ -83,13 +83,13 @@ python main.py \
     --save out/llama_7b/0/ 
 ```
 
-We also have several scripts to run experiments in various settings in the
+We also have several example scripts to run experiments in various settings in the
 `scripts` directory.
 
 ## Experiments
 #### Pruning Methods
 * Wanda, SparseGPT
-#### Model
+#### Models
 * Llama 2-Chat 7B, LLaMA 7B
 
 #### Calibration Datasets Used
