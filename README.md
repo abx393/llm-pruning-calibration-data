@@ -57,7 +57,7 @@ We provide a quick overview of the arguments:
 - `--rationale`: If flag is included, include CoT rationale in answer portion
   of Q-A pairs in calibration samples.
 - `--eval_rationale`: If flag is included, at evaluation time, include CoT
-  rationale in in-context examples.
+  rationale in in-context examples in prompt.
 - `--eval`: type=str, default='wikitext',
             choices=['wikitext', 'redpajama', 'oscar', 'gsm8k', 'svamp', 'mawps', 'anli_r1',
                 'anli_r2', 'anli_r3', 'esnli', 'rte', 'boolq',
