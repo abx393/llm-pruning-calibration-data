@@ -33,44 +33,33 @@ in this file.
 We provide a quick overview of the arguments:  
 - `--model`: The identifier for the LLaMA model on the Hugging Face model hub.
 - `--cache_dir`: Directory for loading or storing LLM weights. The default is `llm_weights`.
-- `--prune_method`: We have implemented three pruning methods, namely [`magnitude`, `wanda`, `sparsegpt`].
+- `--prune_method`: Choices are ["magnitude", "wanda", "sparsegpt", "none"].
 - `--sparsity_ratio`: Denotes the percentage of weights to be pruned.
 - `--sparsity_type`: Specifies the type of sparsity [`unstructured`, `2:4`, `4:8`].
-- `--use_variant`: Whether to use the Wanda variant, default is `False`. 
 - `--save`: Specifies the directory where the result will be stored
-- `--calibration`: The dataset to calibrate on
-- `--rationale`: If this flag is included, calibrate on input + rationale
-- `--eval`: The dataset to evaluate on
-- `--input_format`: The style of calibration data
-- `--verbose`: If this flag is included, print intermediate results to stdout
-- `--seed`: type=int, default=0, help='Seed for sampling the calibration data.'
-- `--nsamples`: default=128, help='Number of calibration samples.'
-- `--prune_method`: type=str, choices=["magnitude", "wanda", "sparsegpt", "none"]
-- `--cache_dir`: default="llm_weights", type=str
-- `--save`: type=str, default=None, help='Path to save results.'
-- `--append_to_file`: type=str, default=None, help='File to append results to.'
-- `--save_model`: type=str, default=None, help='Path to save the pruned model.'
-- `--calibration`: type=str, nargs='+', default='c4',
-            choices=['c4', 'oscar', 'redpajama', 'pile', 'gsm8k', 'svamp', 'mawps', 'anli_r1', 'anli_r2',
-                'anli_r3', 'esnli', 'rte', 'boolq', 'commonsense_qa', 'race',
-                'winogrande', 'wmt14', 'iwslt', 'ellipses', 'random'])
-- `--rationale`: If flag is included, include CoT rationale in answer portion
-  of Q-A pairs in calibration samples.
-- `--eval_rationale`: If flag is included, at evaluation time, include CoT
-  rationale in in-context examples in prompt.
-- `--eval`: type=str, default='wikitext',
-            choices=['wikitext', 'redpajama', 'oscar', 'gsm8k', 'svamp', 'mawps', 'anli_r1',
-                'anli_r2', 'anli_r3', 'esnli', 'rte', 'boolq',
-                'commonsense_qa', 'race', 'winogrande', 'wmt14', 'iwslt', 'all']
-- `--skip_dense_eval`: If flag is included, skip evaluation of dense model
-  (before pruning).
-- `--input_format`: type=str, default='concat', choices=['single', 'concat', 'zero'])
+- `--calibration`: choices=['c4', 'oscar', 'redpajama', 'pile', 'gsm8k', 'svamp', 'mawps', 'anli_r1', 'anli_r2', 'anli_r3', 'esnli', 'rte', 'boolq', 'commonsense_qa', 'race', 'winogrande', 'wmt14', 'ellipses', 'random']
+- `--seed`: Seed for sampling the calibration data. Default is 0.
+- `--nsamples`: Number of calibration samples. Default=128.
+- `--cache_dir`: File path of directory to cache weights.
+  Default="llm_weights".
+- `--input_format`: Default is 'concat'. Choices=['single', 'concat', 'zero'].
 - `--seqlen`: Length of context window in tokens. Default is 2048.
 - `--data_seqlen`: Number of meaningful tokens in each calibration sample, the
   remaining portion of context window is filled with padding tokens.
 - `--num_incontext`: Number of in-context Q-A pairs in each calibration sample.
-- `--num_cot_steps`: Number of CoT steps.
-- `--verbose`: If flag is included, print debugging output.
+- `--num_cot_steps`: Number of CoT reasoning steps for each Q-A pair in
+  calibration samples. Only used if `--rationale` is included.
+- `--rationale`: If flag is included, include CoT rationale in answer portion
+  of Q-A pairs in calibration samples.
+- `--eval_rationale`: If flag is included, at evaluation time, include CoT
+  rationale in in-context examples in prompt.
+- `--eval`: Default is 'wikitext'. Choices=['wikitext', 'redpajama', 'oscar', 'gsm8k', 'svamp', 'mawps', 'anli_r1', 'anli_r2', 'anli_r3', 'esnli', 'rte', 'boolq',
+                'commonsense_qa', 'race', 'winogrande', 'all']
+- `--skip_dense_eval`: If flag is included, skip evaluation of dense model
+  (before pruning).
+- `--verbose`: If this flag is included, print intermediate results to stdout.
+- `--append_to_file`: File to append results to.
+- `--save_model`: Path to save the pruned model.
 
 ## Example
 ```sh
@@ -94,7 +83,7 @@ We also have several example scripts to run experiments in various settings in t
 
 #### Calibration Datasets Used
 ##### Text:
-* C4, WikiText
+* C4, Pile, Oscar, RedPajama
 ##### Arithmetic QA:
 * GSM8K, SVAMP, MAWPS
 ##### Natural Language Inference:
