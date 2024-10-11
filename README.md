@@ -108,3 +108,5 @@ We also have several example scripts to run experiments in various settings in t
 ##### Commonsense QA:
 * CommonSenseQA, RACE, WinoGrande
 
+## Acknowledgement
+This repository is built upon the [wanda](https://github.com/locuslab/wanda/tree/main) and [SparseGPT](https://github.com/IST-DASLab/sparsegpt) repositories.
