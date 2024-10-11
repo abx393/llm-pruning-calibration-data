@@ -1,4 +1,6 @@
 # [EMNLP 2024] Is C4 Dataset Optimal for Pruning? An Investigation of Calibration Data for LLM Pruning
+https://arxiv.org/abs/2410.07461
+
 ## Abstract
 Network pruning has emerged as a potential solution to make LLMs cheaper to
 deploy. However, existing LLM pruning approaches universally rely on the C4
