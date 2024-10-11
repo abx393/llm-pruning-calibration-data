@@ -1,6 +1,21 @@
 # [EMNLP 2024] Is C4 Dataset Optimal for Pruning? An Investigation of Calibration Data for LLM Pruning
 https://arxiv.org/abs/2410.07461
 
+If you find this repository useful, please consider citing:
+```
+@article{bandari2024c4datasetoptimalpruning,
+      title={Is C4 Dataset Optimal for Pruning? An Investigation of Calibration
+Data for LLM Pruning}, 
+      author={Abhinav Bandari and Lu Yin and Cheng-Yu Hsieh and Ajay Kumar
+Jaiswal and Tianlong Chen and Li Shen and Ranjay Krishna and Shiwei Liu},
+      year={2024},
+      eprint={2410.07461},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL},
+      url={https://arxiv.org/abs/2410.07461}, 
+}
+```
+
 ## Abstract
 Network pruning has emerged as a potential solution to make LLMs cheaper to
 deploy. However, existing LLM pruning approaches universally rely on the C4
@@ -93,18 +108,3 @@ We also have several example scripts to run experiments in various settings in t
 ##### Commonsense QA:
 * CommonSenseQA, RACE, WinoGrande
 
-## Citation
-If you find this repository useful, please consider citing:
-```
-@article{bandari2024c4datasetoptimalpruning,
-      title={Is C4 Dataset Optimal for Pruning? An Investigation of Calibration
-Data for LLM Pruning}, 
-      author={Abhinav Bandari and Lu Yin and Cheng-Yu Hsieh and Ajay Kumar
-Jaiswal and Tianlong Chen and Li Shen and Ranjay Krishna and Shiwei Liu},
-      year={2024},
-      eprint={2410.07461},
-      archivePrefix={arXiv},
-      primaryClass={cs.CL},
-      url={https://arxiv.org/abs/2410.07461}, 
-}
-```
